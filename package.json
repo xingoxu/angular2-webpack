@@ -4,8 +4,8 @@
   "description": "A webpack starter for Angular",
   "scripts": {
     "start": "webpack-dev-server --inline --progress --port 8080",
-    "test": "karma start",
-    "build": "rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail"
+    "build": "node build/build.js",
+    "build2": "rimraf dist && webpack --config build/webpack.prod.js --progress --profile --bail"
   },
   "licenses": [
     {
@@ -28,8 +28,8 @@
   },
   "devDependencies": {
     "@types/core-js": "^0.9.34",
-    "@types/node": "^6.0.45",
     "@types/jasmine": "^2.5.35",
+    "@types/node": "^6.0.45",
     "angular2-template-loader": "^0.4.0",
     "awesome-typescript-loader": "^2.2.4",
     "css-loader": "^0.23.1",
@@ -44,9 +44,12 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^1.8.0",
     "null-loader": "^0.1.1",
+    "ora": "^0.3.0",
+    "path": "^0.12.7",
     "phantomjs-prebuilt": "^2.1.7",
     "raw-loader": "^0.5.1",
     "rimraf": "^2.5.2",
+    "shelljs": "^0.7.5",
     "style-loader": "^0.13.1",
     "typescript": "^2.0.3",
     "webpack": "^1.13.0",
