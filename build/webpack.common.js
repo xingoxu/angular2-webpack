@@ -3,7 +3,9 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var helpers = require('./helpers');
 var path = require('path');
+var ProgressBarPlugin = require('progress-bar-webpack-plugin');
 var projectRoot = path.resolve(__dirname, '../');
+const chalk = require('chalk');
 
 var entries = helpers.getEntries('./src/pages/**/*.ts');
 var entry = {
@@ -58,6 +60,10 @@ var baseConfig = {
   },
 
   plugins: [
+    new ProgressBarPlugin({
+      format: '  build [:bar] ' + chalk.green.bold(':percent') + ' (:elapsed seconds)',
+      clear: false
+    }),
     new webpack.optimize.CommonsChunkPlugin({
       name: ['vendor', 'polyfills']
     }),
